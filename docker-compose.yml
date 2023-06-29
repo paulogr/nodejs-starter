@@ -1,0 +1,19 @@
+# Set the version of docker compose to use
+version: '3.9'
+
+# The containers that compose the project
+services:
+  db:
+    image: postgres:14
+    container_name: glo_db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  smtp:
+    image: maildev/maildev:latest
+    container_name: glo_mail
+    ports:
+      - 1080:1080
+      - 1025:1025

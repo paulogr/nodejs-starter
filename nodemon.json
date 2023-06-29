@@ -1,0 +1,10 @@
+{
+  "events": {
+    "restart": "clear"
+  },
+  "ext": "js,njk,mjml",
+  "ignore": [
+    "node_modules/**",
+    "public/**"
+  ]
+}

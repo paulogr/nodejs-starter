@@ -1,0 +1,40 @@
+{
+  "name": "glo-app",
+  "version": "0.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:server": "nodemon . -q",
+    "dev:js": "esbuild public/main.js --outfile=public/build/main.js --bundle --watch",
+    "dev:css": "tailwindcss -i public/styles.pcss -o public/build/styles.css --watch",
+    "build": "NODE_ENV=production run-p build:*",
+    "build:js": "esbuild public/main.js --outfile=public/build/main.js --bundle",
+    "build:css": "tailwindcss -i public/styles.pcss -o public/build/styles.css --minify",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "author": "Paulo Rodrigues <paulo@gestaodelojasonline.com.br>",
+  "dependencies": {
+    "@fastify/static": "^6.10.2",
+    "@fastify/view": "^7.4.1",
+    "awilix": "^8.0.1",
+    "env-schema": "^5.2.0",
+    "fast-glob": "^3.2.12",
+    "fastify": "^4.18.0",
+    "fluent-json-schema": "^4.1.0",
+    "graphql-request": "^6.1.0",
+    "hashids": "^2.3.0",
+    "htmx.org": "^1.9.2",
+    "mjml": "^4.14.1",
+    "nodemailer": "^6.9.3",
+    "nunjucks": "^3.2.4",
+    "pg-boss": "^9.0.1",
+    "pino": "^8.14.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.10",
+    "nodemon": "^2.0.22",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.3.2"
+  }
+}
