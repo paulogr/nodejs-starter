@@ -13,7 +13,11 @@ function pipefyIntegrationService({ config, logger }) {
         { 
           card(id: ${id}) { 
             id
-            title,
+            title
+            current_phase {
+              id
+              name
+            }
             assignees {
               id
               name
@@ -23,25 +27,30 @@ function pipefyIntegrationService({ config, logger }) {
               id
               name
             }
-            current_phase {
-              id
-              name
-            }
             fields {
               value
               field {
-                id
+                  id
               }
             }
             child_relations {
               cards {
-                id,
+                id
                 current_phase {
                   id
                   name
                 }
-              },
+              }
               source_type
+            }
+            inbox_emails {
+              id
+              message_id
+              from
+              fromName
+              cc
+              subject,
+              type
             }
             created_at
             updated_at
@@ -58,9 +67,14 @@ function pipefyIntegrationService({ config, logger }) {
     return field.value
   }
 
+  function getLatestEmail (card) {
+    return card.inbox_emails[card.inbox_emails.length - 1]
+  }
+
   return {
     getCardById,
-    getFieldValueById
+    getFieldValueById,
+    getLatestEmail
   }
 }
 
