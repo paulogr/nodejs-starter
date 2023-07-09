@@ -13,6 +13,7 @@ function pipefyIntegrationService({ config, logger }) {
         { 
           card(id: ${id}) { 
             id
+            suid
             title
             current_phase {
               id
@@ -68,7 +69,7 @@ function pipefyIntegrationService({ config, logger }) {
   }
 
   function getLatestEmail (card) {
-    return card.inbox_emails[card.inbox_emails.length - 1]
+    return card?.inbox_emails[card.inbox_emails.length - 1]
   }
 
   return {

@@ -15,10 +15,14 @@ function config () {
       .prop('EMAIL_FROM', S.string().required())
       .prop('STATIC_HOST', S.string().required())
       .prop('API_HOST', S.string().required())
+      .prop('SMTP_HOST', S.string().required())
+      .prop('SMTP_PORT', S.string().required())
+      .prop('SMTP_USERNAME', S.string().required())
+      .prop('SMTP_PASSWORD', S.string().required())
   })
 
   const isProduction = /^\s*prod\s*$/i.test(env.NODE_ENV)
-  
+
   return {
     isProduction,
     server: {
@@ -38,7 +42,13 @@ function config () {
       }
     },
     email: {
-      from: env.EMAIl_FROM
+      from: env.EMAIL_FROM,
+      smtp: {
+        host: env.SMTP_HOST,
+        port: env.SMTP_PORT,
+        username: env.SMTP_USERNAME,
+        password: env.SMTP_PASSWORD
+      }
     },
     api: {
       host: env.API_HOST

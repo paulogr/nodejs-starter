@@ -7,8 +7,8 @@ function issuesApiWebhookApiPipefy ({ integrations, logger, worker }) {
         async handler (req, reply) {
           const { data: { action, card }} = req.body
 
-          const id = await worker.send(`issues:${action}`, { card })
-          logger.info(`pipefy webhook received [job id]: ${id}`)
+          const id = await worker.send(`issues:pipefy`, { action, card })
+          logger.info(`[${id}]: pipefy ${action} webhook received`)
 
           return { ok: true }
         }

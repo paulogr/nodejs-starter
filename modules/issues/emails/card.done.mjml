@@ -1,0 +1,55 @@
+<mjml>
+  <mj-head>
+    <mj-title>Concluímos seu atendimento!</mj-title>
+    <mj-preview>
+      Concluímos seu atendimento!
+    </mj-preview>
+    <mj-font name="Raleway" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;900&display=swap" />
+    <mj-style inline="inline">
+      body {
+        margin: 30px;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#f6f9fc">
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-image src="{{config.static.host}}/public/img/logo.svg" alt="Gestão de Lojas Online" width="60px" align="left" />
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-text font-size="14px" font-family="Raleway">
+          Olá, {{ name }}.
+        </mj-text>
+        <mj-text font-size="14px" font-family="Raleway">
+          Temos uma ótima notícia, seu atendimento foi concluído!
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-button href="{{config.api.host}}/issues/{{card.id|encodeId}}" background-color="#00b486" color="#fff" font-weight="700" font-size="14px" font-family="Raleway">
+          Ver detalhes do atendimento
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-text padding-bottom="0" font-size="14px" font-family="Raleway">
+          Boas vendas,
+        </mj-text>
+        <mj-text font-size="14px" font-family="Raleway">
+          Equipe GLO
+        </mj-text>
+      </mj-column>  
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text align="center" padding="0" font-size="12px" font-family="Raleway">
+          © 2023 Gestão de Lojas Online. Todos os direitos reservados.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
